@@ -1,1 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+body {
+  background-color: #6e6e5b;
+}
+
+body div {
+  background-color:#d3d3d3;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#__main {
+  margin-top: 1rem;
+  padding: 1rem;
+  height: 89vh;
+  overflow-y: auto;
+}
+
+#__add, #__name {
+  padding: 0.5rem;
+}
+
+#__add {
+  width: 7%;
+}
+
+#__name {
+  width: 93%;
+  float: right;
+}
+
+#__main > div {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: #fffff0;
+  border: #b6aa00 solid;
+  border-width: 1px 0;
+}
+
+#__main > div > div > button {
+  padding: 0.5rem;
+}
+
+#__main > div > div > span {
+  margin-left: 0.5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.delete {
+  float: right;
+}
+
+textarea {
+  padding: 0.5rem;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 3rem;
+  overflow-y: auto;
+  font-family: sans-serif;
+  font-size: 1.3rem;
+}
