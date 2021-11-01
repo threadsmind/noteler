@@ -1,4 +1,4 @@
-let __save = {};
+let noteData = {};
 
 (function(d) {
   const elMain = d.getElementById('__main');
@@ -17,7 +17,7 @@ let __save = {};
   }
 
   function makeNewTile(name, __text) {
-    if (!name || name === '' || __save[name] || __save[name] === '') return;
+    if (!name || name === '' || noteData[name] || noteData[name] === '') return;
 
     const tileDiv = d.createElement('div');
     const headerDiv = d.createElement('div');
@@ -50,12 +50,12 @@ let __save = {};
     textarea.addEventListener('change', updateText.bind(this, name, textarea));
 
     elName.value = '';
-    __save[name] = __text;
+    noteData[name] = __text;
   }
 
   function deleteNode(node) {
     elMain.removeChild(node);
-    delete __save[node.getAttribute('name')];
+    delete noteData[node.getAttribute('name')];
   }
 
   function smallNode(button, node) {
@@ -69,11 +69,11 @@ let __save = {};
   }
 
   function updateText(name, node) {
-    __save[name] = node.value;
+    noteData[name] = node.value;
   }
 
   function saveData() {
-    elData.value = JSON.stringify(__save);
+    elData.value = JSON.stringify(noteData);
   }
 
   function loadData() {
@@ -86,7 +86,7 @@ let __save = {};
       return;
     }
     elMain.innerHTML = null;
-    __save = {};
+    noteData = {};
     const keys = Object.keys(tempSave);
     keys.forEach((key) => {
       makeNewTile(key, tempSave[key]);
