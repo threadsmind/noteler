@@ -12,7 +12,8 @@ let noteData = {};
   elSave.addEventListener('click', saveData);
   elLoad.addEventListener('click', loadData);
 
-  function addTile() {
+  function addTile(e) {
+    e.preventDefault();
     makeNewTile(elName.value, '');
   }
 
