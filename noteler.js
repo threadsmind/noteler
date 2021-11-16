@@ -38,6 +38,7 @@ let noteData = {};
     headerDiv.appendChild(deleteButton);
 
     textarea.value = __text || '';
+    textarea.placeholder = 'Note text...'
     textDiv.appendChild(textarea);
 
     tileDiv.appendChild(headerDiv);
