@@ -54,6 +54,9 @@ button {
 #__main > div > div > span {
   margin-left: 0.5rem;
   font-size: 1.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: 500;
 }
 
