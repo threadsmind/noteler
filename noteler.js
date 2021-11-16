@@ -38,7 +38,8 @@ let noteData = {};
     headerDiv.appendChild(deleteButton);
 
     textarea.value = __text || '';
-    textarea.placeholder = 'Note text...'
+    textarea.placeholder = 'Note text...';
+    textarea.setAttribute('class', 'note-body');
     textDiv.appendChild(textarea);
 
     tileDiv.appendChild(headerDiv);
