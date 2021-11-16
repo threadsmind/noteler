@@ -28,11 +28,11 @@ body div {
 
 #__add {
   width: 12%;
+  float: right;
 }
 
 #__name {
   width: 88%;
-  float: right;
 }
 
 #__main > div {
