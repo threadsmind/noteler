@@ -26,20 +26,23 @@ let noteData = {};
     const textDiv = d.createElement('div');
     const nameSpan = d.createElement('span');
     const deleteButton = d.createElement('button');
-    const smallButton = d.createElement('button');
+    const collapseButton = d.createElement('button');
     const textarea = d.createElement('textarea');
 
-    smallButton.innerText = 'V';
+    collapseButton.innerText = 'V';
+    collapseButton.ariaLabel = 'Hide note ' + name;
     nameSpan.innerText = name;
     deleteButton.innerText = 'X';
     deleteButton.setAttribute('class', 'delete');
+    deleteButton.ariaLabel = 'Delete note ' + name;
 
-    headerDiv.appendChild(smallButton);
+    headerDiv.appendChild(collapseButton);
     headerDiv.appendChild(nameSpan);
     headerDiv.appendChild(deleteButton);
 
     textarea.value = __text || '';
     textarea.placeholder = 'Note text...';
+    textarea.ariaLabel = 'note body ' + name;
     textarea.setAttribute('class', 'note-body');
     textDiv.appendChild(textarea);
 
@@ -50,7 +53,7 @@ let noteData = {};
     elMain.appendChild(tileDiv);
 
     deleteButton.addEventListener('click', deleteNode.bind(this, tileDiv));
-    smallButton.addEventListener('click', smallNode.bind(this, smallButton, textDiv));
+    collapseButton.addEventListener('click', collapseNode.bind(this, collapseButton, textDiv, name));
     textarea.addEventListener('change', updateText.bind(this, name, textarea));
 
     textarea.focus();
@@ -64,13 +67,15 @@ let noteData = {};
     delete noteData[node.getAttribute('name')];
   }
 
-  function smallNode(button, node) {
+  function collapseNode(button, node, name) {
     if (button.innerText === 'V') {
       node.style = 'display: none';
       button.innerText = '>'
+      button.ariaLabel = 'Show note ' + name;
     } else {
       node.style = '';
       button.innerText = 'V';
+      button.ariaLabel = 'Hide note ' + name;
     }
   }
 

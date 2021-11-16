@@ -10,15 +10,15 @@
   <body>
     <div>
       <form>
-        <input type="text" placeholder="New note name..." id="__name">
-        <button id="__add">Add</button>
+        <input type="text" placeholder="New note name..." aria-label="New unique note name" required id="__name">
+        <button id="__add" aria-label="Add new note">Add</button>
       </form>
     </div>
     <div id="__main"></div>
     <div class="flex">
-      <textarea id="__data" placeholder="Paste save text here..."></textarea>
-      <button id="__save">Save</button>
-      <button id="__load">Load</button>
+      <textarea id="__data" aria-label="Paste save text here" placeholder="Paste save text here..."></textarea>
+      <button id="__save" aria-label="Save note data">Save</button>
+      <button id="__load" aria-label="Load note data">Load</button>
     </div>
     <script src="noteler.js" async defer></script>
   </body>
