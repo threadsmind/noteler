@@ -44,7 +44,7 @@ let noteData = {};
     textarea.value = __text || '';
     textarea.placeholder = 'Note text...';
     textarea.ariaLabel = 'note body ' + name;
-    textarea.setAttribute('class', 'note-body');
+    textarea.className = 'note-body';
     textDiv.appendChild(textarea);
 
     tileDiv.appendChild(headerDiv);
