@@ -103,5 +103,6 @@ let noteData = {};
     keys.forEach((key) => {
       makeNewTile(key, tempSave[key]);
     })
+    elData.value = '';
   }
 })(document)
