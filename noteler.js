@@ -51,6 +51,8 @@ let noteData = {};
     smallButton.addEventListener('click', smallNode.bind(this, smallButton, textDiv));
     textarea.addEventListener('change', updateText.bind(this, name, textarea));
 
+    textarea.focus();
+
     elName.value = '';
     noteData[name] = __text;
   }
