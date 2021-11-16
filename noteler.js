@@ -32,9 +32,10 @@ let noteData = {};
     collapseButton.innerText = 'V';
     collapseButton.ariaLabel = 'Hide note ' + name;
     nameSpan.innerText = name;
+    nameSpan.className = 'note-name';
     deleteButton.innerText = 'X';
-    deleteButton.setAttribute('class', 'delete');
     deleteButton.ariaLabel = 'Delete note ' + name;
+    headerDiv.className = 'flex';
 
     headerDiv.appendChild(collapseButton);
     headerDiv.appendChild(nameSpan);
