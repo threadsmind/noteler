@@ -24,7 +24,7 @@ button {
 }
 
 #__main {
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
   padding: 0.5rem;
   overflow-y: auto;
   flex-grow: 1;
