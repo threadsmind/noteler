@@ -30,10 +30,6 @@ button {
   flex-grow: 1;
 }
 
-#__add, #__name {
-  padding: 0.5rem;
-}
-
 #__add {
   width: 12%;
   float: right;
@@ -41,6 +37,7 @@ button {
 
 #__name {
   width: 88%;
+  padding: 0.5rem;
 }
 
 #__main > div {
@@ -51,17 +48,14 @@ button {
   border-width: 1px 0;
 }
 
-#__main > div > div > span {
-  margin-left: 0.5rem;
+.note-name {
+  flex-grow: 1;
+  margin: 0 0.5rem;
   font-size: 1.7rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
-}
-
-.note-name {
-  flex-grow: 1;
 }
 
 .note-body {
