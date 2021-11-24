@@ -13,6 +13,8 @@ let noteData = {};
   elLoad.addEventListener('click', loadData);
   elData.addEventListener('click', elData.select);
 
+  loadData(true);
+
   function addTile(e) {
     e.preventDefault();
     makeNewTile(elName.value, '');
@@ -85,16 +87,18 @@ let noteData = {};
   }
 
   function saveData() {
-    elData.value = JSON.stringify(noteData);
+    const dataString = JSON.stringify(noteData);
+    elData.value = dataString;
+    useLocalData('set', dataString);
   }
 
-  function loadData() {
-    if (!elData || elData.value === '') return;
+  function loadData(isInitLoad) {
+    if (!isInitLoad && (!elData || elData.value === '')) return;
     let tempSave;
     try {
-      tempSave = JSON.parse(elData.value);
+      tempSave = (isInitLoad) ? useLocalData('get') || {} : JSON.parse(elData.value);
     } catch (e) {
-      console.log(e);
+      if (!isInitLoad) console.log(e);
       return;
     }
     elMain.innerHTML = null;
@@ -102,7 +106,20 @@ let noteData = {};
     const keys = Object.keys(tempSave);
     keys.forEach((key) => {
       makeNewTile(key, tempSave[key]);
-    })
+    });
     elData.value = '';
+  }
+
+  function useLocalData(op, saveData) {
+    try {
+      if (op === 'set' && !!saveData) {
+        localStorage.setItem('note', saveData);
+      } else if (op === 'get') {
+        return JSON.parse(localStorage.getItem('note'));
+      }
+      return false;
+    } catch(e) {
+      return false;
+    }
   }
 })(document)
