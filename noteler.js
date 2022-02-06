@@ -13,7 +13,7 @@ let noteData = {};
   elLoad.addEventListener('click', loadData);
   elData.addEventListener('click', elData.select);
 
-  loadData(true);
+  loadData(1);
 
   function addTile(e) {
     e.preventDefault();
@@ -93,10 +93,10 @@ let noteData = {};
   }
 
   function loadData(isInitLoad) {
-    if (!isInitLoad && (!elData || elData.value === '')) return;
+    if (isInitLoad != 1 && (!elData || elData.value === '')) return;
     let tempSave;
     try {
-      tempSave = (isInitLoad) ? useLocalData('get') || {} : JSON.parse(elData.value);
+      tempSave = (isInitLoad === 1) ? useLocalData('get') || {} : JSON.parse(elData.value);
     } catch (e) {
       if (!isInitLoad) console.log(e);
       return;
