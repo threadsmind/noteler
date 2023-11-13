@@ -96,7 +96,7 @@ let noteData = {};
     if (isInitLoad != 1 && (!elData || elData.value === '')) return;
     let tempSave;
     try {
-      tempSave = (isInitLoad === 1) ? useLocalData('get') || {} : JSON.parse(elData.value);
+      tempSave = (isInitLoad === 1) ? useLocalData('get') : JSON.parse(elData.value);
     } catch (e) {
       if (!isInitLoad) console.log(e);
       return;
@@ -114,12 +114,11 @@ let noteData = {};
     try {
       if (op === 'set' && !!saveData) {
         localStorage.setItem('note', saveData);
-      } else if (op === 'get') {
-        return JSON.parse(localStorage.getItem('note'));
+        return
       }
-      return false;
-    } catch(e) {
-      return false;
-    }
+      if (op === 'get')
+        return JSON.parse(localStorage.getItem('note'));
+    } catch(e) {}
+    return {};
   }
 })(document)
